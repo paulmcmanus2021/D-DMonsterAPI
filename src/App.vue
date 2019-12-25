@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import MonsterList from './components/MonsterList';
 
 export default {
   name: 'app',
@@ -21,9 +22,13 @@ mounted(){
   fetch('http://www.dnd5eapi.co/api/monsters')
   .then(res => res.json())
   .then(monster => this.monsters = monster)
+},
+components: {
+  "monster-list" : MonsterList
 }
 }
 </script>
 
 <style lang="css" scoped>
+
 </style>
