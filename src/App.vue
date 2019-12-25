@@ -1,21 +1,29 @@
 <template>
-  <div id="app">
-    <h1>Test</h1>
+  <div>
+    <h1>Dungeons and Dragons 5th Edition Monsters</h1>
+    <div class="main-container">
+      <monster-list v:bind:monsters="monsters"></monster-list>
+    </div>
   </div>
 </template>
 
 <script>
 
+export default {
+  name: 'app',
+  data() {
+    return {
+      monsters: []
+    }
+  },
 
+mounted(){
+  fetch('http://www.dnd5eapi.co/api/monsters')
+  .then(res => res.json())
+  .then(monster => this.monsters = monster)
+}
+}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>
