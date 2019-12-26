@@ -7,13 +7,16 @@
 </template>
 
 <script>
+import MonsterItem from './MonsterItem.vue'
+
 export default {
   name: 'monster-list',
   props: ['monsters'],
   components: {
-    // "monster-item" : MonsterItem
+    "monster-item" : MonsterItem
   }
 }
+
 </script>
 
 <style lang="css" scoped>

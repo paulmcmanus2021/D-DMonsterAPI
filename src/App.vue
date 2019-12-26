@@ -2,7 +2,7 @@
   <div>
     <h1>Dungeons and Dragons 5th Edition Monsters</h1>
     <div class="main-container">
-      <monster-list v:bind:monsters="monsters"></monster-list>
+      <monster-list v-bind:monsters="monsters"></monster-list>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ mounted(){
   .then(monster => this.monsters = monster)
 },
 components: {
-  "monster-list" : MonsterList
+  "monster-list" : MonsterList,
 }
 }
 </script>
