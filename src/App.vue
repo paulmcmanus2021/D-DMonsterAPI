@@ -1,31 +1,37 @@
-<template>
+<template lang="html">
   <div>
-    <h1>Dungeons and Dragons 5th Edition Monsters</h1>
+    <h1>Monsters</h1>
     <div class="main-container">
-      <monster-list v-bind:monsters="monsters"></monster-list>
+      <monsters-list :monsters="monsters"></monsters-list>
+      <monster-detail :monster="selectedMonster"></monster-detail>
     </div>
   </div>
 </template>
 
 <script>
-import MonsterList from './components/MonsterList';
+import { eventBus } from './main.js'
+import MonsterDetail from './components/MonsterDetail.vue'
+import MonstersList from './components/MonstersList.vue'
 
 export default {
-  name: 'app',
-  data() {
+  data(){
     return {
-      monsters: []
-    }
+      monsters: [],
+      selectedMonster: null    }
   },
+  components: {
+    "monsters-list": MonstersList,
+    "monster-detail": MonsterDetail
+  },
+  mounted(){
+    fetch('http://www.dnd5eapi.co/api/monsters')
+    .then(res => res.json())
+    .then(monsters => this.monsters = monsters)
 
-mounted(){
-  fetch('http://www.dnd5eapi.co/api/monsters')
-  .then(res => res.json())
-  .then(monster => this.monsters = monster)
-},
-components: {
-  "monster-list" : MonsterList,
-}
+    eventBus.$on('monster-selected', (monster) => {
+      this.selectedMonster = monster
+    })
+  }
 }
 </script>
 
