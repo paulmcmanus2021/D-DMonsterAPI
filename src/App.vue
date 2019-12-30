@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
-    <h1>Monsters</h1>
+    <h1>Dungeons and Dragons 5th Edition Monsters</h1>
     <div class="main-container">
-      <monsters-list :monsters="monsters"></monsters-list>
+      <monster-dropdown v-bind:monsters='monsters'></monster-dropdown>
       <monster-detail :monster="selectedMonster"></monster-detail>
     </div>
   </div>
@@ -12,6 +12,7 @@
 import { eventBus } from './main.js'
 import MonsterDetail from './components/MonsterDetail.vue'
 import MonstersList from './components/MonstersList.vue'
+import MonsterDropdown from './components/MonsterDropdown.vue'
 
 export default {
   data(){
@@ -21,7 +22,8 @@ export default {
   },
   components: {
     "monsters-list": MonstersList,
-    "monster-detail": MonsterDetail
+    "monster-detail": MonsterDetail,
+    "monster-dropdown": MonsterDropdown
   },
   mounted(){
     fetch('http://www.dnd5eapi.co/api/monsters')
@@ -38,6 +40,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
 
 .main-container {
     display: flex;
