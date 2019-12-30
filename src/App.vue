@@ -29,12 +29,21 @@ export default {
     .then(monsters => this.monsters = monsters)
 
     eventBus.$on('monster-selected', (monster) => {
-      this.selectedMonster = monster
+      fetch(monster.url)
+      .then(res => res.json())
+      .then(monster => this.selectedMonster = monster)
     })
   }
 }
 </script>
 
 <style lang="css" scoped>
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+  }
 
 </style>
