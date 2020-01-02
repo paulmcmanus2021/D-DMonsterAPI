@@ -2,6 +2,7 @@
   <div>
     <label for="monster-dropdown">Choose a Monster:</label>
     <select v-on:change="handleChange" name="monster-dropdown" v-model="monsterChoice">
+      <option value="" disabled selected>Choose a monster</option>
       <option v-for="(monster, index) in monsters.results" :key="index" :value="monster">
         {{ monster.name }}
       </option>
@@ -29,7 +30,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
-
 
 </style>

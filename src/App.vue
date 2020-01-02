@@ -41,21 +41,20 @@ export default {
 
 <style lang="css" scoped>
 
-  h1 {
-    /* background-color: rgba(255, 0, 0, 0.6);
-    text-shadow: 2px 2px; */
+  .entire-page {
+    background-color: #ffebcd;
+    font-family: 'MedievalSharp', cursive;
+  }
 
-    font-family: fantasy;
+  h1 {
+    text-decoration: underline;
+    text-decoration-color: red;
     text-align: center;
   }
 
   .main-container {
-      font-family: fantasy;
-      display: flex;
-      justify-content: center;
-      width: 80%;
-      margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     }
-
-
 </style>
