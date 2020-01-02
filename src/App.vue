@@ -40,9 +40,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
   .entire-page {
-    background-color: #ffebcd;
     font-family: 'MedievalSharp', cursive;
   }
 
